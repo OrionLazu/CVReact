@@ -1,24 +1,40 @@
-import React, { useState } from 'react';
-import './App.css';
+// App.jsx – Point d'entrée principal de l'application React
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header'; // En-tête du site
+import Footer from './components/Footer'; // Pied de page commun
+import Home from './pages/Home'; // Page d'accueil
+import Services from './pages/Services'; // Page des services
+import Projects from './pages/Projects'; // Page des projets
+import Blog from './pages/Blog'; // Page du blog
+import Contact from './pages/Contact'; // Page de contact
+import Legal from './pages/Legal'; // Mentions légales
 
-export default function App() {
-  const [count, setCount] = useState(0);
+import './styles/global.css'; // Styles globaux
+import './styles/custom.css'; // Styles personnalisés
 
+function App() {
   return (
-    <div className="App">
+    <Router>
+      {/* Header commun à toutes les pages */}
       <Header />
-      <main className="container mx-auto p-4">
-        <h1 className="text-2xl font-bold mb-4">Bienvenue sur mon application React</h1>
-        <p className="mb-2">Compteur : {count}</p>
-        <button
-          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-          onClick={() => setCount(prev => prev + 1)}
-        >
-          Incrémenter
-        </button>
+
+      {/* Contenu principal variant selon l'URL */}
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/legal" element={<Legal />} />
+        </Routes>
       </main>
+
+      {/* Footer commun à toutes les pages */}
       <Footer />
-    </div>
+    </Router>
   );
 }
+
+export default App;
