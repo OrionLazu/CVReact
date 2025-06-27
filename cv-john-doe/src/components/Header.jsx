@@ -24,7 +24,7 @@ function Header() {
 
   return (
     <header className="bg-dark shadow-sm fixed-top">
-      <nav className="navbar navbar-expand-lg navbar-light container text-white">
+      <nav className="navbar navbar-expand-lg navbar-dark container">
         {/* Logo ou nom du site */}
         <Link className="navbar-brand text-uppercase fw-bold text-white" to="/">
           John Doe

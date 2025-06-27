@@ -37,6 +37,16 @@
   padding: 2em;
 }
 
+.card-body .fa {
+  transition: color .3s; 
+}
+
+.card-body:hover .fa {
+  color: #cde1f8; 
+
+}
+
+
 .read-the-docs {
   color: #888;
 }
